@@ -12,6 +12,7 @@ if( filter_input(INPUT_SERVER,'REQUEST_METHOD') === 'POST' ) {
             'HEADERS' => json_encode(getallheaders())
         ];
         fwrite($log, json_encode($arr).PHP_EOL);
+        fclose($log);
         exit( 'CSRF Attack! Your Ip is recorded: '. $ip );
     }
 }
